@@ -1,39 +1,25 @@
+<?php
+header("Content-Type: application/json");
+require 'Alunno.php';
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+$alunno1 = new Alunno();
+$alunno1->setName('Fabio');
+$alunno1->setSurname('Zavataro');
+$alunno1->setEta(20);
 
-    <?php
-        require 'Alunno.php';
+$alunno2 = new Alunno();
+$alunno2->setName('Davide');
+$alunno2->setSurname('Susini');
+$alunno2->setEta(21);
 
-        $alunno1 = new Alunno();
-        $alunno1->setName('Fabio');
-        $alunno1->setSurname('Zavataro');
-        $alunno1->setEta(20);
+$alunno3 = new Alunno();
+$alunno3->setName('Matteo');
+$alunno3->setSurname('Ciardi');
+$alunno3->setEta(19);
 
-        $alunno2 = new Alunno();
-        $alunno2->setName('Davide');
-        $alunno2->setSurname('Susini');
-        $alunno2->setEta(21);
+$alunni = array($alunno1, $alunno2, $alunno3);
 
-        $alunno3 = new Alunno();
-        $alunno3->setName('Matteo');
-        $alunno3->setSurname('Ciardi');
-        $alunno3->setEta(19);
+$my_json = json_encode($alunni);
+echo $my_json;
 
-        $alunni = array($alunno1, $alunno2, $alunno3);
-
-        foreach ($alunni as $alunno) {
-            echo $alunno->getName() . ' ' . $alunno->getSurname() . ' ' . $alunno->getEta() . ' anni' . '<br>';
-        }
-
-    
-    ?>
-
-</body>
-</html>
+?>

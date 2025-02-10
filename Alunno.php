@@ -1,6 +1,6 @@
 <?php 
 
-class Alunno { 
+class Alunno implements JsonSerializable { 
 
     protected $name = "";
     protected $surname = "";
@@ -31,6 +31,13 @@ class Alunno {
     }
 
 
+    public function jsonSerialize() : array{
+        return [
+            'name' => $this->name,
+            'surname' => $this->surname,
+            'eta' => $this->eta
+        ];
+    }
 
 
 
